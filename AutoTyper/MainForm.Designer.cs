@@ -37,6 +37,8 @@
             this.nudTypingDelay = new System.Windows.Forms.NumericUpDown();
             this.lbTypingDelay = new System.Windows.Forms.Label();
             this.lbInfo = new System.Windows.Forms.Label();
+            this.bClearText = new System.Windows.Forms.Button();
+            this.cbAlwaysOnTop = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudInitialDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTypingDelay)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +50,7 @@
             this.tbTypedText.Location = new System.Drawing.Point(33, 61);
             this.tbTypedText.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tbTypedText.Name = "tbTypedText";
-            this.tbTypedText.Size = new System.Drawing.Size(404, 25);
+            this.tbTypedText.Size = new System.Drawing.Size(361, 25);
             this.tbTypedText.TabIndex = 0;
             // 
             // bType
@@ -143,12 +145,39 @@
             this.lbInfo.TabIndex = 7;
             this.lbInfo.Text = "[INFO]";
             // 
+            // bClearText
+            // 
+            this.bClearText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bClearText.Location = new System.Drawing.Point(393, 61);
+            this.bClearText.Name = "bClearText";
+            this.bClearText.Size = new System.Drawing.Size(44, 27);
+            this.bClearText.TabIndex = 8;
+            this.bClearText.Text = "X";
+            this.bClearText.UseVisualStyleBackColor = true;
+            this.bClearText.Click += new System.EventHandler(this.bClearText_Click);
+            // 
+            // cbAlwaysOnTop
+            // 
+            this.cbAlwaysOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAlwaysOnTop.AutoSize = true;
+            this.cbAlwaysOnTop.Checked = true;
+            this.cbAlwaysOnTop.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAlwaysOnTop.Location = new System.Drawing.Point(321, 23);
+            this.cbAlwaysOnTop.Name = "cbAlwaysOnTop";
+            this.cbAlwaysOnTop.Size = new System.Drawing.Size(122, 23);
+            this.cbAlwaysOnTop.TabIndex = 9;
+            this.cbAlwaysOnTop.Text = "Always On Top";
+            this.cbAlwaysOnTop.UseVisualStyleBackColor = true;
+            this.cbAlwaysOnTop.CheckedChanged += new System.EventHandler(this.cbAlwaysOnTop_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(473, 297);
+            this.Controls.Add(this.cbAlwaysOnTop);
+            this.Controls.Add(this.bClearText);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.nudTypingDelay);
             this.Controls.Add(this.lbTypingDelay);
@@ -164,6 +193,8 @@
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(13);
             this.Text = "Auto Typer";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudInitialDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTypingDelay)).EndInit();
             this.ResumeLayout(false);
@@ -181,6 +212,8 @@
         private System.Windows.Forms.NumericUpDown nudTypingDelay;
         private System.Windows.Forms.Label lbTypingDelay;
         private System.Windows.Forms.Label lbInfo;
+        private System.Windows.Forms.Button bClearText;
+        private System.Windows.Forms.CheckBox cbAlwaysOnTop;
     }
 }
 

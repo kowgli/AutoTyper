@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,8 +12,13 @@ namespace AutoTyper
 
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             lbInfo.Text = "";
+            this.Text = $"{this.Text} {Assembly.GetExecutingAssembly().GetName().Version}";
         }
 
         private async void bType_Click(object sender, EventArgs e)
@@ -62,6 +68,16 @@ namespace AutoTyper
             nudTypingDelay.Enabled = !disable;
 
             bType.Text = disable ? "Cancel" : "Type";
+        }
+
+        private void bClearText_Click(object sender, EventArgs e)
+        {
+            tbTypedText.Text = "";
+        }
+
+        private void cbAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = cbAlwaysOnTop.Checked;
         }
     }
 }
